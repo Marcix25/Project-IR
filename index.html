@@ -1,228 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <div class="navbar">
-          
-          <nav>
-            <ul id="MenuItems">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="#">Contact</a></li>
-              
-            </ul>
-          </nav>
-          <img src="https://i.ibb.co/6XbqwjD/menu.png" alt="" class="menu-icon" onclick="menutoggle()" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Menu</title>
+  </head>
+
+  <body>
+    <div class="overlay"></div>
+
+    <!-- Login Form -->
+    <div class="login-form">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="username"><i class="bx bxs-user"></i> Username:</label>
+        <input type="text" id="username" name="username" />
+        <label for="password"> <i class="bx bxs-lock-alt"></i>Password:</label>
+        <input type="password" id="password" name="password" />
+        <label for="remember">Remember Me:</label>
+        <input type="checkbox" id="remember" name="remember" />
+        <button type="submit" id="loginBtn">Login</button>
+      </form>
+      <button id="forgotPasswordBtn">Forgot Password</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <h1 class="logo">Restaurant</h1>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="menu-icon">
+          <i class="bx bx-menu"></i>
         </div>
       </div>
-      
-      <div class="small-container">
-        <div class="row row-2">
-          <h2>All Products</h2>
-          <select>
-            <option value="">Default Shorting</option>
-            <option value="">Short by price</option>
-            <option value="">Short by popularity</option>
-            <option value="">Short by rating</option>
-            <option value="">Short by sale</option>
-          </select>
+    </nav>
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        onkeyup="searchProducts()"
+        placeholder="Search for products..."
+      />
+    </div>
+
+    <div class="small-container">
+      <div class="row row-2">
+        <h2>All Products</h2>
+        <select id="sortingOptions" onchange="sortProducts()">
+          <option value="default">Default Sorting</option>
+          <option value="price">Sort by Price</option>
+          <option value="popularity">Sort by Popularity</option>
+          <option value="rating">Sort by Rating</option>
+          <option value="sale">Sort by Sale</option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <img src="a.jpg" alt="" />
+          <h4>Pizza</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>300l.E</p>
         </div>
-        <div class="row">
 
-
-
-          <div class="col-4">
-            <img src="img/a.jpg" alt="" />
-            <h4>Pizza</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>120 l.E</p>
+        <div class="col-4">
+          <img src="b.jpg" alt="" />
+          <h4>vegetable Salad</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
           </div>
-
-          <div class="col-4">
-            <img src="img/b.jpg" alt="" />
-            <h4>Salad</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>100 L.E</p>
-          </div>
-
-          <div class="col-4">
-            <img src="img/c.jpg" alt="" />
-            <h4>Salad</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>400 L.E</p>
-          </div>
-
-          <div class="col-4">
-            <img src="img/d.jpg" alt="" />
-            <h4>cauliflower</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>300 L.E</p>
-          </div>
-          <div class="col-4">
-            <img src="img/a.jpg" alt="" />
-            <h4>Pizza</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>120 l.E</p>
-          </div>
-
-          <div class="col-4">
-            <img src="img/b.jpg" alt="" />
-            <h4>Salad</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>100 L.E</p>
-          </div>
-
-          <div class="col-4">
-            <img src="img/c.jpg" alt="" />
-            <h4>Eggs</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>400 L.E</p>
-          </div>
-
-          <div class="col-4">
-            <img src="img/d.jpg" alt="" />
-            <h4>cauliflower</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>300 L.E</p>
-          </div>
-
-          <div class="col-4">
-            <img src="img/a.jpg" alt="" />
-            <h4>Pizza</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>120 l.E</p>
-          </div>
-
-          <div class="col-4">
-            <img src="img/b.jpg" alt="" />
-            <h4>Salad</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>100 L.E</p>
-          </div>
-
-          <div class="col-4">
-            <img src="img/c.jpg" alt="" />
-            <h4>Eggs</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>400 L.E</p>
-          </div>
-
-          <div class="col-4">
-            <img src="img/d.jpg" alt="" />
-            <h4>cauliflower</h4>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>300 L.E</p>
-          </div>
-
+          <p>150 L.E</p>
         </div>
-      
-        <div class="page-btn">
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>4</span>
-          <span>&#8594;</span>
+
+        <div class="col-4">
+          <img src="c.jpg" alt="" />
+          <h4>egg salad</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>100 L.E</p>
+        </div>
+
+        <div class="col-4">
+          <img src="d.jpg" alt="" />
+          <h4>cauliflower</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>200 L.E</p>
+        </div>
+        <div class="col-4">
+          <img src="shish.jpeg" alt="" />
+          <h4>sheesh tawook</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>400 l.E</p>
+        </div>
+
+        <div class="col-4">
+          <img src="steak.jpeg" alt="" />
+          <h4>Steak</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>600 L.E</p>
+        </div>
+
+        <div class="col-4">
+          <img src="noodles.jpeg" alt="" />
+          <h4>noodles</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>250 L.E</p>
+        </div>
+
+        <div class="col-4">
+          <img src="pasta.jpeg" alt="" />
+          <h4>pasta</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>170 L.E</p>
+        </div>
+
+        <div class="col-4">
+          <img src="cake.jpeg" alt="" />
+          <h4>Strawberry Cake</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>120 l.E</p>
+        </div>
+
+        <div class="col-4">
+          <img src="coffee.jpeg" alt="" />
+          <h4>iced latte</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>70 L.E</p>
+        </div>
+
+        <div class="col-4">
+          <img src="pancake.jpeg" alt="" />
+          <h4>pancakes</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>90L.E</p>
+        </div>
+
+        <div class="col-4">
+          <img src="waffle.jpeg" alt="" />
+          <h4>waffeles</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>60L.E</p>
         </div>
       </div>
-      
-      <!-- Footer -->
-      <div class="footer">
-          <hr />
-          <p class="copyright">Copyright &copy; 2024 - Marcelo</p>
-        </div>
+
+      <div class="page-btn">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>&#8594;</span>
       </div>
-      
-      <!-- js for toggle menu -->
-      <script>
-        var MenuItems = document.getElementById('MenuItems');
-        MenuItems.style.maxHeight = '0px';
-      
-        function menutoggle() {
-          if (MenuItems.style.maxHeight == '0px') {
-            MenuItems.style.maxHeight = '200px';
-          } else {
-            MenuItems.style.maxHeight = '0px';
-          }
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <hr />
+        <p class="copyright">Fun Food Store &copy; 2024 - Marcelo</p>
+      </div>
+    </footer>
+
+    <!-- js for toggle menu -->
+    <script>
+      var MenuItems = document.getElementById("MenuItems");
+      MenuItems.style.maxHeight = "0px";
+
+      function menutoggle() {
+        if (MenuItems.style.maxHeight == "0px") {
+          MenuItems.style.maxHeight = "200px";
+        } else {
+          MenuItems.style.maxHeight = "0px";
         }
-      </script>
-</body>
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
