@@ -1,7 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  background: #f5f5f5;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent black */
+  z-index: 1;
+}
+
+.logo {
+  margin: 0;
+  text-align: center ;
+  margin: 20px;
+  color: rgb(255, 255, 255);
+  font-family:Monospace;
+  font-size: 30px;
+  background-color: none;
+}
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  backdrop-filter: blur(10px); /* Applies a blur effect to the background */
+  z-index: 1; /* Ensure the overlay is behind the form */
+}
+/* CSS for login form */
+.login-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  z-index: 2;
+  width: 450px;
+  text-align: center;
+}
+
+.login-form h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form input[type="checkbox"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.login-form button {
+  width: 50%;
+  padding: 8px; 
+  background: #6d888c; 
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#forgotPasswordBtn {
+  margin-top: 10px; /* Adjust the value as needed */
+}
+
 * {
     margin: 0;
     padding: 10;
     box-sizing: border-box;
+    font-size: 20px;
   }
   
   body {
@@ -11,40 +98,40 @@
   .navbar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 20px;
-    color: white;
+    background: #be691e; /* Updated background color */
+    color: #fff;
   }
   
-  nav {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-  }
-  
+nav ul {
+  display: flex;
+  list-style-type: none;
+  font-size: large;
+}
 
-  nav ul {
-    display: inline-block;
-    list-style-type: none;
-    font-size: large;
-  }
+nav ul li {
+  margin-right: 20px;
+}
   
   nav ul li {
     display: inline-block;
     margin-right: 100px;
   }
   
-  a {
+  nav ul li a {
     text-decoration: none;
     color: #ffffff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
+    transition: color 0.3s;
+}
   
   p {
     color: #555;
   }
   
   .container {
-    background-color: #7E979B;
+    background-color: #b9791a00;
     max-width: 1300px;
     margin: auto;
     padding-left: 25px;
@@ -156,6 +243,13 @@
   .col-4 p {
     font-size: 14px;
   }
+  /* Set fixed height and width for images */
+.col-4 img {
+  width: 100%;
+  height: 200px; /* Adjust height as needed */
+  object-fit: cover; /* Ensure images maintain aspect ratio and cover the entire space */
+}
+
   
   .rating .fas {
     color: #ff523b;
@@ -249,7 +343,7 @@
   /* footer */
   
   .footer {
-    background: #678b91;
+    background: #000000;
     color: #8a8a8a;
     font-size: 14px;
     padding: 10 220px;
@@ -365,7 +459,7 @@
   
   .page-btn span {
     display: inline-block;
-    border: 1px solid #4f8d72;
+    border: 1px solid #000704;
     margin-left: 10px;
     width: 40px;
     height: 40px;
@@ -448,7 +542,6 @@
     display: flex;
     flex-wrap: wrap;
   }
-  
   th {
     text-align: left;
     padding: 5px;
@@ -577,15 +670,57 @@
   
   /* media query for less than 600 screen size */
   
-  @media only screen and (max-width: 600px) {
-    .row {
+  @media only screen and (max-width: 768px) {
+    .menu {
+      display: none;
+  }
+
+  .menu-icon {
+      display: block;
+      float: right;
+  }
+
+  .menu-icon i {
+      font-size: 24px;
+  }
+
+  .menu-icon:hover {
+      color: #ffd6d6;
+  }
+
+  .menu-icon.active i {
+      color: #ffd6d6;
+  }
+
+  .navbar {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+
+  .menu.active {
+      display: block;
+      background-color: #010604;
+      position: absolute;
+      width: 100%;
       text-align: center;
-    }
-    .col-2,
-    .col-3,
-    .col-4 {
-      flex-basis: 100%;
-    }
+  }
+  .menu.active li {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax values as needed */
+  gap: 20px; /* Adjust gap between columns */
+  justify-content: space-between;
+}
+
+/* Adjust the .col-4 class to take up full available width */
+.col-4 {
+  width: 100%;
+  max-width: 300px; /* Adjust maximum width as needed */
+}
   
     .single-product .row {
       text-align: left;
@@ -601,5 +736,45 @@
     .cart-info p {
       display: none;
     }
+    
   }
-  
+  /* New CSS file for search functionality */
+
+.search-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    padding: 10px;
+    width: 300px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+}
+
+#searchInput:focus {
+    border-color: #516c8f;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+  color: #ffd6d6;
+  text-decoration: underline;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
